@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.EventSystems;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -11,10 +12,10 @@ public class PlayerMove : MonoBehaviour
         playerAgent = GetComponent<NavMeshAgent>();
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
-        if(Input.GetButtonDown("Move")){
+        if(Input.GetButtonDown("Move") && EventSystem.current.IsPointerOverGameObject() == false){
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             bool isCollide = Physics.Raycast(ray, out hit);
