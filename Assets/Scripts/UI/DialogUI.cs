@@ -6,11 +6,21 @@ using UnityEngine.UI;
 
 public class DialogUI : MonoBehaviour
 {
+    public static DialogUI Instance {get; private set;}
     TextMeshProUGUI nameText;
     TextMeshProUGUI dialogText;
     Button continueButton;
     List<string> contentList;
     int index = 0;
+
+    void Awake(){
+        if(Instance != null && Instance != this){//多个对话UI实例会被摧毁
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+    }
 
     void Start(){
         nameText = transform.Find("NPCName").GetComponent<TextMeshProUGUI>();

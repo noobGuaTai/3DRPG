@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Interactable
+  - JavelinBullet
   layers:
   - Default
   - TransparentFX
@@ -14,7 +15,7 @@ TagManager:
   - Water
   - UI
   - PostProcessing
-  - 
+  - JavelinBullet
   - 
   - 
   - 
